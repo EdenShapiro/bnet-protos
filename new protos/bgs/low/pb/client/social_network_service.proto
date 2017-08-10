@@ -1,0 +1,75 @@
+package bgs.protocol.sns.v1;
+import "bgs/low/pb/client/rpc_types.proto";
+import "bgs/low/pb/client/account_types.proto";
+
+
+message GetFacebookAuthCodeRequest {
+	optional .bgs.protocol.account.v1.AccountId account = 1;
+}
+
+message GetFacebookAuthCodeResponse {
+	optional string fb_code = 1;
+	optional string redirect_uri = 2;
+	optional string fb_id = 3;
+}
+
+message GetFacebookBnetFriendsRequest {
+	enum ProfilePictureType {
+		SMALL = 0;
+		NORMAL = 1;
+		LARGE = 2;
+		SQUARE = 3;
+	}
+	optional .bgs.protocol.account.v1.Identity identity = 1;
+	optional .bgs.protocol.sns.v1.GetFacebookBnetFriendsRequest.ProfilePictureType profile_picture_type = 2 [default = SMALL];
+	optional uint32 token = 3;
+}
+
+message GetFacebookSettingsResponse {
+	optional string app_id = 1;
+	optional string redirect_uri = 2;
+	optional string api_version = 3;
+}
+
+message GetFacebookAccountLinkStatusRequest {
+	optional .bgs.protocol.account.v1.AccountId account = 1;
+}
+
+message GetFacebookAccountLinkStatusResponse {
+	optional bool account_linked = 1;
+	optional string fb_id = 2;
+	optional string display_name = 3;
+}
+
+message FacebookBnetFriendListNotification {
+	optional uint32 error_code = 1;
+	optional .bgs.protocol.account.v1.Identity identity = 2;
+	optional string fb_id = 6;
+	repeated .bgs.protocol.sns.v1.FacebookBnetFriend friend_list = 3;
+	optional bool list_end = 4;
+	optional uint32 token = 5;
+}
+
+message FacebookBnetFriend {
+	optional .bgs.protocol.account.v1.AccountId bnet_id = 1;
+	optional string fb_id = 2;
+	optional string last_name = 3;
+	optional string first_name = 4;
+	optional string profile_picture = 5;
+	optional string display_name = 6;
+}
+
+message FacebookBnetFriendListNotificationResponse {
+	optional bool continue = 1 [default = true];
+}
+
+service SocialNetworkService {
+	rpc GetFacebookAuthCode (.bgs.protocol.sns.v1.GetFacebookAuthCodeRequest) returns (.bgs.protocol.sns.v1.GetFacebookAuthCodeResponse);
+	rpc GetFacebookBnetFriends (.bgs.protocol.sns.v1.GetFacebookBnetFriendsRequest) returns (.bgs.protocol.NoData);
+	rpc GetFacebookSettings (.bgs.protocol.NoData) returns (.bgs.protocol.sns.v1.GetFacebookSettingsResponse);
+	rpc GetFacebookAccountLinkStatus (.bgs.protocol.sns.v1.GetFacebookAccountLinkStatusRequest) returns (.bgs.protocol.sns.v1.GetFacebookAccountLinkStatusResponse);
+}
+
+service SocialNetworkListener {
+	rpc OnFacebookBnetFriendListReceived (.bgs.protocol.sns.v1.FacebookBnetFriendListNotification) returns (.bgs.protocol.sns.v1.FacebookBnetFriendListNotificationResponse);
+}

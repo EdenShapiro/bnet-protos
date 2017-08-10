@@ -1,0 +1,15 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message SuccessMessage {
+	optional bool success = 1 [default = true];
+}
+
+service BattleTagService {
+	rpc Enable (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc Disable (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc Success (.bna.browser.rpc.SuccessMessage) returns (.bna.browser.rpc.NoData);
+	rpc Submit (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+}

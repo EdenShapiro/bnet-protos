@@ -1,0 +1,39 @@
+package bna.browser.rpc;
+import "extensions.proto";
+
+enum ErrorCode {
+	ERROR_UNKNOWN = 0;
+	ERROR_SERVICE_ID_NOT_FOUND = 1;
+	ERROR_METHOD_ID_NOT_FOUND = 2;
+	ERROR_RPC_CALL_CANCELED = 3;
+}
+
+message NoData {
+}
+
+message RpcMessage {
+	optional uint32 service_id = 1;
+	optional uint32 method_id = 2;
+	optional bytes payload = 4;
+}
+
+message Entity {
+	optional string id = 1;
+}
+
+message Rectangle {
+	optional uint32 x = 1;
+	optional uint32 y = 2;
+	optional uint32 width = 3;
+	optional uint32 height = 4;
+}
+
+message Region {
+	optional string code = 1;
+	optional string name = 2;
+}
+
+message KeyValue {
+	optional string key = 1;
+	optional string value = 2;
+}

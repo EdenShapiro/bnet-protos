@@ -1,0 +1,7 @@
+package Blizzard.Telemetry.App.Chat;
+import "telemetry_extensions.proto";
+
+
+message Command {
+	optional string command_name = 1;
+}

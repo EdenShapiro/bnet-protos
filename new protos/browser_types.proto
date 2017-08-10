@@ -1,0 +1,53 @@
+package bna.browser.rpc;
+import "extensions.proto";
+
+
+message WarningState {
+	optional bool show = 1 [default = true];
+	optional string message = 2;
+}
+
+message BrowserState {
+	optional bool browser_active = 1;
+	optional bool link_handling_enabled = 2 [default = true];
+}
+
+message ErrorData {
+	optional string body_title = 1;
+	optional string body_text = 2;
+	optional string original_url = 3;
+	optional string open_external_text = 4;
+	optional string reload_text = 5;
+	optional string error_code_text = 6;
+	optional string error_code_url = 7;
+	optional string region = 8;
+	optional uint32 refresh_interval_seconds = 9;
+	optional string selected_product_code = 10;
+	optional string locale = 11;
+}
+
+message ErrorEvent {
+	optional string template_url = 1;
+}
+
+message Log {
+	enum LogLevel {
+		LOG_DEBUG = 1;
+		LOG_INFO = 2;
+		LOG_WARN = 3;
+		LOG_ERROR = 4;
+	}
+	optional .bna.browser.rpc.Log.LogLevel level = 1;
+	optional string message = 2;
+	optional string filename = 3;
+	optional uint32 line_number = 4;
+}
+
+message LinkData {
+	optional string rel = 1;
+	optional string href = 2;
+}
+
+message LoadingIndicatorData {
+	optional bool enabled = 1;
+}

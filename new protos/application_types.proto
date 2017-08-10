@@ -1,0 +1,54 @@
+package bna.browser.rpc;
+import "extensions.proto";
+
+
+message GameTab {
+	optional string product = 1;
+}
+
+message GoogleData {
+	optional string client_id = 1;
+	optional string user_agent = 2;
+}
+
+message ApplicationState {
+	optional bool auto_away = 1;
+	optional bool analytics_enabled = 2;
+	optional string session_id = 3;
+	optional .bna.browser.rpc.GoogleData google_data = 4;
+	optional string bnet_account_id = 5;
+	optional bool logged_in = 6;
+	optional string locale = 7;
+	optional string login_region = 8;
+	optional string current_os_version = 9;
+	optional string current_os = 10;
+}
+
+message DeviceId {
+	optional string device_id = 1;
+}
+
+message VarName {
+	optional string name = 1;
+}
+
+message VarValue {
+	optional string value = 1;
+}
+
+message Variant {
+	optional string string_value = 1;
+	optional int32 int_value = 2;
+	optional bool bool_value = 3;
+	optional string uint64_value = 4;
+}
+
+message VarPair {
+	optional string name = 1;
+	optional .bna.browser.rpc.Variant value = 2;
+}
+
+message SendTelemetryData {
+	optional string message_name = 1;
+	repeated .bna.browser.rpc.VarPair pairs = 2;
+}

@@ -1,0 +1,12 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message BackgroundImageGameData {
+	optional string product_id = 1;
+}
+
+service NewsService {
+	rpc SetBackground (.bna.browser.rpc.BackgroundImageGameData) returns (.bna.browser.rpc.NoData);
+}

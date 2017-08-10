@@ -1,0 +1,28 @@
+package BNET.BI;
+
+
+message StreamingSession {
+	enum STREAMING_PROVIDER {
+		PROVIDER_FACEBOOK = 0;
+	}
+	optional uint64 session_id = 1;
+	optional uint64 bnet_id = 2;
+	optional uint64 timestamp = 3;
+	optional string stream_uuid = 4;
+	optional string platform = 5;
+	optional string os_version = 6;
+	optional bool webcam_enabled = 7;
+	optional bool microphone_enabled = 8;
+	optional string region = 9;
+	optional string game = 10;
+	optional uint64 elapsed_ms = 11;
+	optional uint32 max_viewer_count = 17;
+	optional int32 session_error = 12 [default = 0];
+	optional int32 streaming_provider = 13;
+	optional string provider_stream_id = 14;
+	optional string fb_privacy_setup = 15;
+	optional uint32 fb_comments = 16;
+	optional int32 webcam_position = 18;
+	optional int32 webcam_size = 19;
+	optional int32 streaming_quality = 20;
+}

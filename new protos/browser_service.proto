@@ -1,0 +1,16 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "browser_types.proto";
+
+
+service BrowserService {
+	rpc SetWarningOnNavigation (.bna.browser.rpc.WarningState) returns (.bna.browser.rpc.NoData);
+	rpc HandleError (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc GetErrorData (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ErrorData);
+	rpc LogMessage (.bna.browser.rpc.Log) returns (.bna.browser.rpc.NoData);
+	rpc HandleLinkClick (.bna.browser.rpc.LinkData) returns (.bna.browser.rpc.NoData);
+	rpc SetLoadingIndicatorState (.bna.browser.rpc.LoadingIndicatorData) returns (.bna.browser.rpc.NoData);
+	rpc BrowserStateChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.BrowserState);
+	rpc ShowError (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ErrorEvent);
+}

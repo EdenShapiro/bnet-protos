@@ -1,0 +1,46 @@
+package bna.ipc.logging;
+import "protocol.proto";
+
+enum LogLevel {
+	LOG_NONE = 0;
+	LOG_DEBUG = 1;
+	LOG_INFO = 2;
+	LOG_WARN = 3;
+	LOG_ERROR = 4;
+	LOG_FATAL = 5;
+}
+enum ErrorCode {
+	ERROR_OK = 0;
+	ERROR_BAD_REQUEST = 1;
+	ERROR_BAD_SOURCE = 2;
+	ERROR_BAD_LEVEL = 3;
+}
+
+message LogMessage {
+	optional string source = 1;
+	optional string timestamp = 2;
+	optional .bna.ipc.logging.LogLevel level = 3;
+	optional string thread_id = 4;
+	optional string filename = 5;
+	optional int32 line_number = 6;
+	optional string data = 7;
+}
+
+message SetLogLevelRequest {
+	optional string source = 1;
+	optional .bna.ipc.logging.LogLevel level = 2;
+}
+
+message SetLogLevelResponse {
+	optional .bna.ipc.logging.ErrorCode error = 1 [default = ERROR_OK];
+}
+
+message GetLogLevelRequest {
+	optional string source = 1;
+}
+
+message GetLogLevelResponse {
+	optional .bna.ipc.logging.ErrorCode error = 1 [default = ERROR_OK];
+	optional string source = 2;
+	optional .bna.ipc.logging.LogLevel level = 3;
+}

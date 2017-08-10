@@ -1,0 +1,8 @@
+package Blizzard.Telemetry.App;
+import "telemetry_extensions.proto";
+
+
+message GameSsoError {
+	optional uint32 error_code = 1;
+	optional string game = 2;
+}

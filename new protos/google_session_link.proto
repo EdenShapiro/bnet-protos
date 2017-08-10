@@ -1,0 +1,8 @@
+package BNET.BI;
+
+
+message AppGoogleSessionLink {
+	optional uint64 session_id = 1;
+	optional string client_id = 2;
+	optional string user_agent = 3;
+}

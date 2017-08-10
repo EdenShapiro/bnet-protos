@@ -1,0 +1,14 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "application_types.proto";
+
+
+service ApplicationService {
+	rpc FocusGameTab (.bna.browser.rpc.GameTab) returns (.bna.browser.rpc.NoData);
+	rpc GetState (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ApplicationState);
+	rpc GetDeviceId (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.DeviceId);
+	rpc GetVar (.bna.browser.rpc.VarName) returns (.bna.browser.rpc.VarValue);
+	rpc SendTelemetry (.bna.browser.rpc.SendTelemetryData) returns (.bna.browser.rpc.NoData);
+	rpc ApplicationStateChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ApplicationState);
+}

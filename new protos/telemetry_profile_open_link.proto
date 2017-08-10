@@ -1,0 +1,9 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message OpenLink {
+	optional uint64 target_account_id = 1;
+	optional string link_type = 2;
+	optional string custom_url_domain = 3;
+}

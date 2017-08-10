@@ -1,0 +1,19 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "chat_types.proto";
+
+
+service ChatService {
+	rpc ReplayMessageHistory (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc CopyText (.bna.browser.rpc.CopyTextMessage) returns (.bna.browser.rpc.NoData);
+	rpc AuthorClicked (.bna.browser.rpc.Entity) returns (.bna.browser.rpc.NoData);
+	rpc GetState (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ChatState);
+	rpc AddMessage (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ChatMessage);
+	rpc FormatChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.FormatChangeEvent);
+	rpc ClearMessages (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc MarkMessagesRead (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc RemoveMessage (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.RemoveMessageEvent);
+	rpc LoadFonts (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.LoadFontsEvent);
+	rpc StateChanged (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ChatState);
+}

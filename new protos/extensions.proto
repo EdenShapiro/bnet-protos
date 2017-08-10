@@ -1,0 +1,17 @@
+package bna.browser.rpc;
+import "google/protobuf/descriptor.proto";
+
+enum ServiceId {
+	ServiceId_RouterService = 0;
+	ServiceId_ApplicationService = 1;
+	ServiceId_BrowserService = 2;
+	ServiceId_PlayscreenService = 3;
+	ServiceId_FriendsService = 4;
+	ServiceId_BattleTagService = 5;
+	ServiceId_ChatService = 6;
+	ServiceId_ShopService = 7;
+	ServiceId_NewsService = 8;
+	ServiceId_LoginService = 9;
+	ServiceId_RegionSelectorService = 10;
+	ServiceId_ProfileService = 11;
+}

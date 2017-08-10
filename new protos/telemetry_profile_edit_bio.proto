@@ -1,0 +1,8 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message EditBio {
+	optional int32 character_count = 1;
+	optional bool filtered_for_profanity = 2;
+}

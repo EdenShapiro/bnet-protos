@@ -1,0 +1,11 @@
+package Blizzard.Telemetry.App;
+import "telemetry_extensions.proto";
+
+
+message LoginResult {
+	optional bool used_cached_credentials = 1;
+	optional uint32 result_code = 2;
+	optional uint32 server_port = 3;
+	optional string server_address = 4;
+	optional string tassadar_error = 5;
+}

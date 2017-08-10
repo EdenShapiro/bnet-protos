@@ -1,0 +1,17 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "profile_types.proto";
+
+
+service ProfileService {
+	rpc GetProfileServiceState (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ProfileServiceState);
+	rpc GetProfileData (.bna.browser.rpc.ProfileAccountMessage) returns (.bna.browser.rpc.ProfileData);
+	rpc SubscribeToProfile (.bna.browser.rpc.ProfileAccountMessage) returns (.bna.browser.rpc.NoData);
+	rpc UnsubscribeToProfile (.bna.browser.rpc.ProfileAccountMessage) returns (.bna.browser.rpc.NoData);
+	rpc SetFriendNote (.bna.browser.rpc.SetFriendNoteMessage) returns (.bna.browser.rpc.NoData);
+	rpc PerformProfileAction (.bna.browser.rpc.ProfileActionMessage) returns (.bna.browser.rpc.NoData);
+	rpc ReportProfile (.bna.browser.rpc.ReportProfileMessage) returns (.bna.browser.rpc.NoData);
+	rpc ProfileServiceStateChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ProfileServiceState);
+	rpc ProfileDataChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ProfileData);
+}

@@ -1,0 +1,33 @@
+package BNET.BI;
+
+
+message StreamingSettings {
+	enum WebcamPosition {
+		BOTTOM_RIGHT = 0;
+		BOTTOM_LEFT = 1;
+		TOP_RIGHT = 2;
+		TOP_LEFT = 3;
+		CUSTOM = 4;
+	}
+	enum WebcamSize {
+		SMALL = 0;
+		MEDIUM = 1;
+		LARGE = 2;
+	}
+	enum StreamQuality {
+		HIGH = 0;
+		MED = 1;
+		LOW = 2;
+	}
+	optional uint64 session_id = 1;
+	optional uint64 bnet_id = 2;
+	optional uint64 timestamp = 3;
+	optional bool streaming_enabled = 4;
+	optional string streaming_toggle_key = 5;
+	optional string streaming_pause_key = 6;
+	optional bool webcam_enabled = 7;
+	optional int32 webcam_position = 8;
+	optional int32 webcam_size = 9;
+	optional bool microphone_enabled = 10;
+	optional int32 streaming_quality = 11;
+}

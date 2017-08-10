@@ -1,0 +1,9 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message View {
+	optional uint64 target_account_id = 1;
+	optional bool is_me = 2;
+	optional string friendship_state = 3;
+}

@@ -1,0 +1,9 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message EditLink {
+	optional string link_type = 1;
+	optional string edit_type = 2;
+	optional string custom_url_domain = 3;
+}

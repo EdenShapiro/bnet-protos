@@ -1,0 +1,11 @@
+package BNET.BI;
+
+
+message ResizeEvent {
+	optional uint64 session_id = 1;
+	optional uint64 bnet_id = 2;
+	optional uint64 timestamp = 3;
+	optional uint32 window_width = 4;
+	optional uint32 window_height = 5;
+	optional string window_name = 6;
+}

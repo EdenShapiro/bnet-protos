@@ -1,0 +1,21 @@
+package Blizzard.Telemetry.App;
+import "telemetry_extensions.proto";
+
+
+message StreamingSessionEnd {
+	enum STREAMING_PROVIDER {
+		PROVIDER_FACEBOOK = 0;
+	}
+	optional string stream_uuid = 1;
+	optional bool webcam_enabled = 2;
+	optional bool microphone_enabled = 3;
+	optional string game = 4;
+	optional uint64 elapsed_ms = 5;
+	optional uint32 max_viewer_count = 6;
+	optional int32 session_error = 7;
+	optional int32 streaming_provider = 8;
+	optional string provider_stream_id = 9;
+	optional uint32 fb_comments = 10;
+	optional string fb_stream_destination = 11;
+	optional string fb_stream_privacy = 12;
+}

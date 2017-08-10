@@ -1,0 +1,53 @@
+package bna.browser.rpc;
+import "extensions.proto";
+
+
+message ProfileServiceState {
+	optional uint32 service_version = 1;
+}
+
+message ProfileAccountMessage {
+	optional string account_id = 1;
+}
+
+message ProfileData {
+	enum FriendshipState {
+		NONE = 0;
+		FRIEND = 1;
+		INCOMING_FRIEND_REQUEST = 2;
+		OUTGOING_FRIEND_REQUEST = 3;
+	}
+	optional uint32 profile_version = 1;
+	optional string account_id = 2;
+	optional string battle_tag = 3;
+	optional uint32 battle_tag_discriminator = 4;
+	optional string real_id = 5;
+	optional .bna.browser.rpc.ProfileData.FriendshipState friendship_state = 6;
+	optional string friend_note = 7;
+	optional bool is_favorite = 8;
+	optional bool is_me = 9;
+}
+
+message SetFriendNoteMessage {
+	optional string account_id = 1;
+	optional string friend_note = 2;
+}
+
+message ProfileActionMessage {
+	enum ProfileAction {
+		SEND_WHISPER = 1;
+		SEND_FRIEND_REQUEST = 2;
+		ACCEPT_FRIEND_REQUEST = 3;
+		DECLINE_FRIEND_REQUEST = 4;
+		SEND_REALID_REQUEST = 5;
+		REMOVE_FRIEND = 6;
+		TOGGLE_FAVORITE = 7;
+	}
+	optional string account_id = 1;
+	optional .bna.browser.rpc.ProfileActionMessage.ProfileAction action = 2;
+}
+
+message ReportProfileMessage {
+	optional string account_id = 1;
+	optional string profile_text = 2;
+}

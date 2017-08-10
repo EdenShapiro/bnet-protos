@@ -1,0 +1,23 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "playscreen_types.proto";
+
+
+service PlayScreenService {
+	rpc GetState (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.PlayScreenState);
+	rpc GetAccount (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.UserAccount);
+	rpc SetRegionSelectorData (.bna.browser.rpc.RegionSelectorData) returns (.bna.browser.rpc.NoData);
+	rpc PlayButtonClicked (.bna.browser.rpc.Region) returns (.bna.browser.rpc.NoData);
+	rpc ExpandPatchNotes (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc ClosePatchNotes (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc SetPatchNotesUrl (.bna.browser.rpc.PatchNotesUrl) returns (.bna.browser.rpc.NoData);
+	rpc GetAnnouncementState (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.GameAnnouncements);
+	rpc DismissAnnouncement (.bna.browser.rpc.DismissAnnouncementData) returns (.bna.browser.rpc.NoData);
+	rpc StateChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.PlayScreenState);
+	rpc AccountChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.UserAccount);
+	rpc BreakingNewsChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.BreakingNewsData);
+	rpc ShowPatchNotes (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.PatchNotesData);
+	rpc RequestPatchNotesURL (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc AnnouncementDataChange (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.GameAnnouncements);
+}

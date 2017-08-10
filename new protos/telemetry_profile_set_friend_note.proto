@@ -1,0 +1,8 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message SetFriendNote {
+	optional uint64 target_account_id = 1;
+	optional int32 character_count = 2;
+}

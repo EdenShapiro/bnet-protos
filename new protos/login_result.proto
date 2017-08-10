@@ -1,0 +1,16 @@
+package BNET.BI;
+
+
+message LoginResult {
+	optional uint64 session_id = 1;
+	optional uint64 bnet_id = 2;
+	optional uint64 timestamp = 3;
+	optional bool used_cached_credentials = 4;
+	optional uint32 result_code = 5;
+	optional uint32 server_port = 6;
+	optional string server_address = 7;
+	optional bool is_registered_igr = 8;
+	optional string registered_igr_ip = 9;
+	optional bool unified_authentication = 10;
+	optional string tassadar_error = 11;
+}

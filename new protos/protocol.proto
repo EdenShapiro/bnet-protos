@@ -1,0 +1,12 @@
+package bna.ipc;
+import "google/protobuf/descriptor.proto";
+
+enum Package {
+	PACKAGE_APP = 1000;
+	PACKAGE_LOGGING = 1001;
+	PACKAGE_VOICE = 1100;
+}
+enum LogOption {
+	HIDDEN = 1;
+	HEX = 2;
+}

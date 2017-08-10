@@ -1,0 +1,12 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message ActiveServiceList {
+	repeated .bna.browser.rpc.ServiceId serviceIds = 1;
+}
+
+service RouterService {
+	rpc GetActiveServices (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.ActiveServiceList);
+}

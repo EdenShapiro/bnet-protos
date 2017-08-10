@@ -1,0 +1,24 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message ShopBackgroundImageData {
+	optional string image_data_base64 = 1;
+	optional uint32 header_height = 2;
+	optional uint32 subnav_height = 3;
+	optional string url = 4;
+}
+
+message GetSelectedRegionForProgramRequest {
+	optional string program_id = 1;
+}
+
+message GetSelectedRegionForProgramResponse {
+	optional string region_code = 1;
+}
+
+service ShopService {
+	rpc SetBackgroundDataBase64 (.bna.browser.rpc.ShopBackgroundImageData) returns (.bna.browser.rpc.NoData);
+	rpc GetSelectedRegionForProgram (.bna.browser.rpc.GetSelectedRegionForProgramRequest) returns (.bna.browser.rpc.GetSelectedRegionForProgramResponse);
+}

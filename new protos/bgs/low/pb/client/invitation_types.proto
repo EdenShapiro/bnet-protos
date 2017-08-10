@@ -1,0 +1,21 @@
+package bgs.protocol;
+import "bgs/low/pb/client/entity_types.proto";
+
+
+message Invitation {
+	required fixed64 id = 1;
+	required .bgs.protocol.Identity inviter_identity = 2;
+	required .bgs.protocol.Identity invitee_identity = 3;
+	optional string inviter_name = 4;
+	optional string invitee_name = 5;
+	optional string invitation_message = 6;
+	optional uint64 creation_time = 7;
+	optional uint64 expiration_time = 8;
+	extensions 100 to 10000;
+}
+
+message InvitationParams {
+	optional string invitation_message = 1;
+	optional uint64 expiration_time = 2;
+	extensions 100 to 10000;
+}

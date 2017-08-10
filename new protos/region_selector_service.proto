@@ -1,0 +1,35 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message RegionSelectedData {
+	optional string region = 1;
+}
+
+message RegionDetectedData {
+	optional string region = 1;
+	optional string country = 2;
+}
+
+message RegionInitializationData {
+	repeated .bna.browser.rpc.KeyValue localized_strings = 1;
+	optional string geoip_nydus_url = 2;
+}
+
+message RegionPageData {
+	enum RegionPage {
+		REGION_PAGE_SUGGEST = 1;
+		REGION_PAGE_MANUAL = 2;
+	}
+	optional uint32 page = 1;
+}
+
+service RegionSelectorService {
+	rpc SetSelectedRegion (.bna.browser.rpc.RegionSelectedData) returns (.bna.browser.rpc.NoData);
+	rpc SetRegionPage (.bna.browser.rpc.RegionPageData) returns (.bna.browser.rpc.NoData);
+	rpc SetRegionDetectedData (.bna.browser.rpc.RegionDetectedData) returns (.bna.browser.rpc.NoData);
+	rpc WhyDoesThisMatterClicked (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc Initialize (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.RegionInitializationData);
+	rpc SetPage (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.RegionPageData);
+}

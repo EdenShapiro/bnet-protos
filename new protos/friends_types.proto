@@ -1,0 +1,27 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+
+
+message Friend {
+	optional string id = 1;
+	optional string name = 2;
+	optional string game = 3;
+	optional string presence = 4;
+	optional string availability = 5;
+	optional string battletag = 6;
+	optional uint32 battletag_id = 7;
+	optional string avatar = 8;
+	optional bool favorite = 9 [default = false];
+	optional double last_online = 10 [default = 0];
+	optional bool removed = 11 [default = false];
+}
+
+message FriendsList {
+	repeated .bna.browser.rpc.Friend friends = 1;
+}
+
+message FriendTooltipLocation {
+	optional .bna.browser.rpc.Entity entity = 1;
+	optional .bna.browser.rpc.Rectangle rectangle = 2;
+}

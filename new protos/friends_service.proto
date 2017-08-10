@@ -1,0 +1,15 @@
+package bna.browser.rpc;
+import "rpc_types.proto";
+import "extensions.proto";
+import "friends_types.proto";
+
+
+service FriendsService {
+	rpc GetFriends (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.FriendsList);
+	rpc ShowTooltip (.bna.browser.rpc.FriendTooltipLocation) returns (.bna.browser.rpc.NoData);
+	rpc HideTooltip (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc OpenChat (.bna.browser.rpc.Entity) returns (.bna.browser.rpc.NoData);
+	rpc ShowContextMenu (.bna.browser.rpc.Entity) returns (.bna.browser.rpc.NoData);
+	rpc FriendsReset (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.NoData);
+	rpc FriendsChanged (.bna.browser.rpc.NoData) returns (.bna.browser.rpc.FriendsList);
+}

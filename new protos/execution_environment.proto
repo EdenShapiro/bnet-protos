@@ -1,0 +1,14 @@
+package BNET.BI;
+
+
+message AppExecutionEnvironmentChange {
+	enum ExecutionEnvironment {
+		EE_UNSET = 0;
+		EE_STANDARD = 1;
+		EE_IGR_FORCED_BY_STRUCTURE = 2;
+		EE_IGR_FORCED_BY_IP = 3;
+	}
+	optional uint64 session_id = 1;
+	optional .BNET.BI.AppExecutionEnvironmentChange.ExecutionEnvironment environment = 2 [default = EE_UNSET];
+	optional string region = 3;
+}

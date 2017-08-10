@@ -1,0 +1,45 @@
+package bna.browser.rpc;
+import "extensions.proto";
+
+
+message ChatMessage {
+	optional uint32 message_id = 1;
+	optional string message = 2;
+	optional string time = 3;
+	optional string datetime = 4;
+	optional string author = 5;
+	optional string entity = 6;
+	optional string error = 7;
+	optional string notification_type = 8;
+	optional string error_blz_link = 14;
+	optional string error_cs_link = 15;
+	optional bool is_rollup = 12 [default = false];
+	optional bool is_incoming = 10 [default = false];
+	optional bool is_notification = 11 [default = false];
+	optional bool is_error = 9 [default = false];
+	optional bool is_unread = 13 [default = false];
+	optional bool is_emote = 16 [default = false];
+}
+
+message CopyTextMessage {
+	optional string message = 1;
+}
+
+message FormatChangeEvent {
+	optional string format = 1;
+}
+
+message RemoveMessageEvent {
+	optional uint32 message_id = 1;
+}
+
+message LoadFontsEvent {
+	optional string fonts_list = 1;
+}
+
+message ChatState {
+	optional bool mark_down = 1;
+	optional string locale = 2;
+	optional bool is_offline = 3;
+	optional string offline_message = 4;
+}

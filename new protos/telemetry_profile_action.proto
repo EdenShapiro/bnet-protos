@@ -1,0 +1,8 @@
+package Blizzard.Telemetry.App.Profile;
+import "telemetry_extensions.proto";
+
+
+message Action {
+	optional uint64 target_account_id = 1;
+	optional string profile_action = 2;
+}
